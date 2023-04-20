@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "./index.css"
+import "../styles/PokemonInfo.css"
 import { Link } from "react-router-dom";
 
 const Page = () => 
@@ -40,14 +40,6 @@ const Page = () =>
         setCurrentPage(currentPage - 1);
     }
 
-    const getPokemonBackgroundColor = (type) => {
-      const colorMap = {
-        grass: "green",
-        fire: "red",
-        water: "blue"
-      };
-      return colorMap[type] || "gray";
-    }
     return(
         <div>
             <div className="poke-page" >
@@ -55,8 +47,10 @@ const Page = () =>
                     <PokemonInfo key={pokemon.name} pokemon={pokemon.name}/>
                 ))}
             </div>
-            <button onClick={handlePreviousePage} disabled={currentPage === 1}>Previous Page</button>
-            <button onClick={handleNextPage} disabled={pokemons.length < limit}>Next Page</button>
+            <div className="page-buttons">
+            <button onClick={handlePreviousePage} disabled={currentPage === 1} className="button">Previous Page</button>
+            <button onClick={handleNextPage} disabled={pokemons.length < limit} className="button">Next Page</button>
+            </div>
         </div>
     )
 }
@@ -66,7 +60,8 @@ const PokemonInfo = ({pokemon}) => {
     const [id, setId] = useState("");
     const [name, setName] = useState("")
     const [img, setImg] = useState("");
-  
+    const [types, setTypes] = useState([]);
+
     const getPokemon = async (pokemon) =>
     {
       if(pokemon === "") return;
@@ -75,36 +70,44 @@ const PokemonInfo = ({pokemon}) => {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
         if(!response.ok) throw new Error("Response was not OK");
         const pkmn = await response.json();
-        setImg(pkmn.sprites.front_default);
+        setImg(pkmn.sprites.other.dream_world.front_default);
         setId(pkmn.id);
         setName(pkmn.name);
-      
+        setTypes(pkmn.types);
       }
       catch(err)
       {
         setMessage(err.message);
         setId("");
         setImg("");
-        setName("")
+        setName("");
+        setTypes([]);
       }
     }
     useEffect (() => {
       getPokemon(pokemon);
     }, [pokemon])
+
+
+    const getType = () => {
+      if (!types || types.length === 0) return "";
+      const typeName = types[0].type.name;
+      return typeName;
+    };
+    
     return (
-        <div className="poke-box">
+        <div className={`poke-box ${getType()}`}>
           <Link to={`about/${id}`} className="poke-box-link">
             <div className="poke-box-inner">
               <div id="message">{message}</div>
               <div className="poke-info">
-              <div id="id">{id}</div>
-              <div id="name">{name}</div>
+                <p id="id">{id}</p>
+                <p id="name">{name}</p>
               </div>
               <div className="poke-img-container">
-              <img src={img} alt="img" className="poke-img"/>
+                <img src={img} alt="img" className="poke-img"/>
               </div>
             </div> 
-          
           </Link>
         </div>
       

@@ -1,0 +1,118 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Schibsted Grotesk', sans-serif;
+  }
+  
+  .poke-box
+  {
+    height: 200px;
+    width: 23%;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 1%;
+    text-decoration: none;
+    display: flex;
+    box-shadow: 0 0 10px 2px ;
+    transition: 0.5s;
+    background-color: rgb(164, 164, 164);
+  }
+  
+  .poke-box:hover
+  {
+    transform: translateY(-1rem);
+  }
+  
+  .poke-box a {
+    text-decoration: none;
+    color: black;
+  }
+  .poke-page
+  {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  
+  }
+  
+  .poke-box-link
+  {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .poke-box-inner
+  {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .poke-img-container
+  {
+    width: 33%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .poke-img
+  {
+    width: 100%;
+    height: auto;
+  }
+  .poke-info
+  {
+    width: 66%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: calc(100%-5px);
+    text-transform: capitalize;
+  
+  }
+  .page-buttons
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .button{
+    background-color: transparent;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 40px;
+    margin: 0;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+  }
+  
+  
+  
+  @media screen and (max-width:1300px) {
+    .poke-box{
+      width: 30%;
+    }
+  }
+  
+  @media screen and (max-width:800px) {
+    .poke-box{
+      width: 47%;
+    }
+  }
+  
+  @media screen and (max-width:550px) {
+    .poke-box{
+      width:80%;
+    }
+  }

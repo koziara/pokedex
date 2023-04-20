@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import ErrorPage from './Error-page';
-import About from './About';
+import ErrorPage from './components/Error-page';
+import About from './components/About.js';
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 const routes = [

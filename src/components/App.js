@@ -1,5 +1,7 @@
 import React from "react"
 import PokemonInfo from "./PokemonInfo"
+import "../styles/App.css"
+
 
 export default function Pokedex()
 {
