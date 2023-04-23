@@ -3,22 +3,34 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import ErrorPage from './components/Error-page';
+import Info from './components/Info.js';
+import { RouterProvider, createHashRouter} from "react-router-dom"
+import Root from './routes/Root.js';
 import About from './components/About.js';
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-const routes = [
+const router = createHashRouter ([
   {
     path: "/",
-    element: <App/>,
-    errorElement: <ErrorPage/>
+    element: <Root/>,
+    errorElement: <ErrorPage/>,
+    children: [
+      {
+        path: "/",
+        element: <App/>,
+      },
+      {
+         path: "/about/:pokemonId",
+        element: <About />
+      },
+      {
+        path: "/info",
+        element: <Info/>
+      }
+    ],
   },
-  {
-    path: `/about/:pokemonId`,
-    element: <About />
-  }
-];
+]);
 
-const router = createBrowserRouter(routes);
+//const router = createBrowserRouter(routes);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

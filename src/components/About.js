@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/About.css"
 import "../styles/BackgroundColor.css"
+import Navbar from "./Navbar";
 
 
 
@@ -56,7 +57,8 @@ const About = () =>
       
 
     return (
-        <div className="about">
+        <div>
+                    <div className="about">
             <div className={`about-box ${getType()}`}>
                 <div className="about-img">
                     <img src={img}/>
@@ -87,6 +89,8 @@ const About = () =>
                 </div>
 
             </div>
+        </div>
+
 
         </div>
     )

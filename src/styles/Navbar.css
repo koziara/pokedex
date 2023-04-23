@@ -1,0 +1,33 @@
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #cfd8dc;
+    margin-bottom: 1%;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav li a{
+    padding-left: 1rem;
+    text-decoration: none;
+    color: black;
+  }
+  
+
+  @media only screen and (max-width: 600px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      flex-direction: column;
+      padding-top: 0.5rem;
+    }
+    nav li {
+      padding: 0.5rem 0;
+    }
+  } 

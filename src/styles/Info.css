@@ -1,0 +1,16 @@
+.info-page
+{
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    height: 100vh;
+}
+
+.info-page-text
+{
+    width: 50%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+}
